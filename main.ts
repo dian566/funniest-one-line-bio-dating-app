@@ -9,5 +9,11 @@ const bio =
   "I tried once. Crashed twice. " +
   "Third time's the charm — I brought snacks and a backup plan.";
 
+const MAX_LEN = 180;
+
+if (bio.length > MAX_LEN) {
+  throw new Error(`Bio is ${bio.length} characters, over the ${MAX_LEN} limit.`);
+}
+
 mkdirSync("/output", { recursive: true });
 writeFileSync("/output/entry.txt", bio, "utf8");
